@@ -56,7 +56,7 @@ export default function Catalog() {
                     <h1>Каталог</h1>
                 </div>
                 <div className="catalog">
-                    <aside className="filters">
+                    <div className="filters">
                         <h3>Фильтры</h3>
 
                         {/* Динамические категории */}
@@ -97,7 +97,7 @@ export default function Catalog() {
                                 ))}
                             </select>
                         </label>
-                    </aside>
+                    </div>
 
                     <div className="catalog__content">
                         {loading ? (

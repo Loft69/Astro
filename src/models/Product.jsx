@@ -1,5 +1,5 @@
 export class Product {
-    constructor({ id, name, description, category, price, image, sizes = [], color = '' }) {
+    constructor({ id, name, description, category, price, image, sizes = [], colors = [], color = '' }) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -7,7 +7,8 @@ export class Product {
         this.price = Number(price);
         this.image = "" + image;
         this.sizes = sizes;
-        this.color = color;
+        // Поддержка старого формата (одиночное поле "color"), но основной источник — массив "colors"
+        this.colors = colors && colors.length > 0 ? colors : (color ? [color] : []);
     }
 
     // проверка фильтров
@@ -16,21 +17,21 @@ export class Product {
         return this.sizes.includes(size);
     }
 
+    hasColor(color) {
+        if (!color || color === 'all') return true;
+        return this.colors.some(c => c.toLowerCase() === color.toLowerCase());
+    }
+
     matchesCategory(category) {
         if (!category || category === 'all') return true;
         return this.category?.toLowerCase() === category.toLowerCase();
-    }
-
-    matchesColor(color) {
-        if (!color || color === 'all') return true;
-        return this.color?.toLowerCase() === color.toLowerCase();
     }
 
     matches(filters = {}) {
         return (
             this.matchesCategory(filters.category) &&
             this.hasSize(filters.size) &&
-            this.matchesColor(filters.color)
+            this.hasColor(filters.color)
         );
     }
 
@@ -45,7 +46,7 @@ export class Product {
     }
 
     static getUniqueColors(products) {
-        const colors = products.map(p => p.color).filter(Boolean);
+        const colors = products.flatMap(p => p.colors || []);
         return [...new Set(colors)];
     }
 }

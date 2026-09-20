@@ -1,3 +1,4 @@
+
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
@@ -13,19 +14,22 @@ export default function Header() {
         <header className="header">
             <div className="container header__inner">
                 <Link to="/" className="logo">ASTRO</Link>
+
                 <nav className="nav">
                     <NavLink to="/">Главная</NavLink>
                     <NavLink to="/catalog">Каталог</NavLink>
                     <NavLink to="/about">О нас</NavLink>
                     <NavLink to="/contacts">Контакты</NavLink>
                 </nav>
+
                 <div className="header__actions">
-                    {/* Кнопка переключения темы */}
                     <button
                         className="theme-toggle"
                         onClick={toggleTheme}
                         aria-label="Переключить тему"
-                        title={theme === "dark" ? "Включить светлую тему" : "Включить тёмную тему"}
+                        title={theme === "dark"
+                            ? "Включить светлую тему"
+                            : "Включить тёмную тему"}
                     >
                         {theme === "dark" ? "☀️" : "🌙"}
                     </button>
@@ -39,8 +43,14 @@ export default function Header() {
                         <Link to="/login" className="header__login">Войти</Link>
                     )}
 
-                    <Link to="/cart" className="cart-button">
-                        Корзина {totalItems > 0 && <span>{totalItems}</span>}
+                    <Link
+                        to="/cart"
+                        className="cart-button"
+                        aria-label={`Корзина, товаров: ${totalItems}`}
+                    >
+                        <span className="cart-button__label">
+                            Корзина
+                        </span>
                     </Link>
                 </div>
             </div>

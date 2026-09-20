@@ -10,7 +10,7 @@ const rawProducts = [
         price: "994",
         image: "1.png",
         sizes: ["XS", "S", "M", "L", "XL"],
-        color: "Черный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "2",
@@ -18,9 +18,9 @@ const rawProducts = [
         description: "Синие джинсы",
         category: "Женское",
         price: "2500",
-        image: "2.png",
+        image: "1.png",
         sizes: ["S", "M", "L"],
-        color: "Черный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "3",
@@ -28,9 +28,9 @@ const rawProducts = [
         description: "Летнее платье в цветочный принт",
         category: "Женское",
         price: "3200",
-        image: "3.png",
+        image: "1.png",
         sizes: ["XS", "M", "XL"],
-        color: "Белый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "4",
@@ -38,9 +38,9 @@ const rawProducts = [
         description: "Кожаная юбка-карандаш",
         category: "Женское",
         price: "4100",
-        image: "4.png",
+        image: "1.png",
         sizes: ["S", "L"],
-        color: "Черный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "5",
@@ -48,9 +48,9 @@ const rawProducts = [
         description: "Шёлковая блузка с длинным рукавом",
         category: "Женское",
         price: "2750",
-        image: "5.png",
+        image: "1.png",
         sizes: ["XS", "S", "M", "L"],
-        color: "Белый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "6",
@@ -58,9 +58,9 @@ const rawProducts = [
         description: "Объёмный вязаный кардиган",
         category: "Женское",
         price: "4300",
-        image: "6.png",
+        image: "1.png",
         sizes: ["S", "L"],
-        color: "Бежевый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "7",
@@ -68,9 +68,9 @@ const rawProducts = [
         description: "Демисезонное пальто прямого кроя",
         category: "Женское",
         price: "8900",
-        image: "7.png",
+        image: "1.png",
         sizes: ["M", "L", "XL"],
-        color: "Серый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "8",
@@ -78,9 +78,9 @@ const rawProducts = [
         description: "Классические брюки с высокой посадкой",
         category: "Женское",
         price: "3100",
-        image: "8.png",
+        image: "1.png",
         sizes: ["XS", "M"],
-        color: "Черный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "9",
@@ -88,9 +88,9 @@ const rawProducts = [
         description: "Тёплый свитер крупной вязки",
         category: "Женское",
         price: "3600",
-        image: "9.png",
+        image: "1.png",
         sizes: ["S", "M", "L", "XL"],
-        color: "Молочный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "10",
@@ -98,9 +98,9 @@ const rawProducts = [
         description: "Спортивный топ для тренировок",
         category: "Женское",
         price: "1450",
-        image: "10.png",
+        image: "1.png",
         sizes: ["XS", "S", "M"],
-        color: "Розовый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
 
     // ===== МУЖСКОЕ (10) =====
@@ -110,9 +110,9 @@ const rawProducts = [
         description: "Хлопковая футболка с принтом",
         category: "Мужское",
         price: "1200",
-        image: "11.png",
+        image: "1.png",
         sizes: ["S", "M", "L", "XL"],
-        color: "Белый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "12",
@@ -120,9 +120,9 @@ const rawProducts = [
         description: "Классическая рубашка в клетку",
         category: "Мужское",
         price: "2800",
-        image: "12.png",
+        image: "1.png",
         sizes: ["M", "L", "XL"],
-        color: "Синий"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "13",
@@ -130,9 +130,9 @@ const rawProducts = [
         description: "Строгие брюки со стрелками",
         category: "Мужское",
         price: "3500",
-        image: "13.png",
+        image: "1.png",
         sizes: ["S", "L"],
-        color: "Серый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "14",
@@ -140,9 +140,9 @@ const rawProducts = [
         description: "Утепленное худи с капюшоном",
         category: "Мужское",
         price: "3900",
-        image: "14.png",
+        image: "1.png",
         sizes: ["M", "L", "XL"],
-        color: "Серый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "15",
@@ -150,9 +150,9 @@ const rawProducts = [
         description: "Прямые джинсы из плотного денима",
         category: "Мужское",
         price: "4200",
-        image: "15.png",
+        image: "1.png",
         sizes: ["S", "M", "L", "XL"],
-        color: "Синий"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "16",
@@ -160,9 +160,9 @@ const rawProducts = [
         description: "Свитшот с круглым вырезом",
         category: "Мужское",
         price: "2600",
-        image: "16.png",
+        image: "1.png",
         sizes: ["S", "L"],
-        color: "Черный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "17",
@@ -170,9 +170,9 @@ const rawProducts = [
         description: "Осенняя куртка-бомбер",
         category: "Мужское",
         price: "6700",
-        image: "17.png",
+        image: "1.png",
         sizes: ["M", "L", "XL"],
-        color: "Хаки"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "18",
@@ -180,9 +180,9 @@ const rawProducts = [
         description: "Поло с коротким рукавом",
         category: "Мужское",
         price: "1900",
-        image: "18.png",
+        image: "1.png",
         sizes: ["XS", "S", "M", "L"],
-        color: "Белый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "19",
@@ -190,9 +190,9 @@ const rawProducts = [
         description: "Летние шорты из хлопка",
         category: "Мужское",
         price: "1700",
-        image: "19.png",
+        image: "1.png",
         sizes: ["S", "M", "L"],
-        color: "Бежевый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "20",
@@ -200,9 +200,9 @@ const rawProducts = [
         description: "Классический пиджак на пуговицах",
         category: "Мужское",
         price: "7900",
-        image: "20.png",
+        image: "1.png",
         sizes: ["M", "XL"],
-        color: "Темно-синий"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
 
     // ===== ОБУВЬ (5) =====
@@ -212,9 +212,9 @@ const rawProducts = [
         description: "Спортивные кроссовки для бега",
         category: "Обувь",
         price: "5600",
-        image: "21.png",
+        image: "1.png",
         sizes: ["XS", "S", "M", "L", "XL"],
-        color: "Белый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "22",
@@ -222,9 +222,9 @@ const rawProducts = [
         description: "Зимние кожаные ботинки",
         category: "Обувь",
         price: "7200",
-        image: "22.png",
+        image: "1.png",
         sizes: ["M", "L", "XL"],
-        color: "Коричневый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "23",
@@ -232,9 +232,9 @@ const rawProducts = [
         description: "Классические туфли на каблуке",
         category: "Обувь",
         price: "4800",
-        image: "23.png",
+        image: "1.png",
         sizes: ["XS", "M"],
-        color: "Черный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "24",
@@ -242,9 +242,9 @@ const rawProducts = [
         description: "Текстильные кеды на резиновой подошве",
         category: "Обувь",
         price: "3300",
-        image: "24.png",
+        image: "1.png",
         sizes: ["S", "M", "L", "XL"],
-        color: "Белый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "25",
@@ -252,9 +252,9 @@ const rawProducts = [
         description: "Кожаные лоферы без шнуровки",
         category: "Обувь",
         price: "5900",
-        image: "25.png",
+        image: "1.png",
         sizes: ["XS", "S", "M"],
-        color: "Коричневый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
 
     // ===== АКСЕССУАРЫ (5) =====
@@ -264,9 +264,9 @@ const rawProducts = [
         description: "Сумка через плечо из экокожи",
         category: "Аксессуары",
         price: "2400",
-        image: "26.png",
+        image: "1.png",
         sizes: ["S", "L"],
-        color: "Бежевый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "27",
@@ -274,9 +274,9 @@ const rawProducts = [
         description: "Кожаный ремень с металлической пряжкой",
         category: "Аксессуары",
         price: "1500",
-        image: "27.png",
+        image: "1.png",
         sizes: ["XS", "S", "M", "L"],
-        color: "Черный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "28",
@@ -284,9 +284,9 @@ const rawProducts = [
         description: "Тёплый вязаный шарф",
         category: "Аксессуары",
         price: "1100",
-        image: "28.png",
+        image: "1.png",
         sizes: ["XS", "M", "XL"],
-        color: "Серый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "29",
@@ -294,9 +294,9 @@ const rawProducts = [
         description: "Компактный кошелёк из натуральной кожи",
         category: "Аксессуары",
         price: "1900",
-        image: "29.png",
+        image: "1.png",
         sizes: ["S", "M", "L"],
-        color: "Коричневый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "30",
@@ -304,9 +304,9 @@ const rawProducts = [
         description: "Очки с UV-защитой в трендовой оправе",
         category: "Аксессуары",
         price: "2700",
-        image: "30.png",
+        image: "1.png",
         sizes: ["XS", "S", "M", "L", "XL"],
-        color: "Черный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
 
     // ===== ДЕТСКОЕ (10) =====
@@ -316,9 +316,9 @@ const rawProducts = [
         description: "Мягкая хлопковая футболка с весёлым принтом",
         category: "Детское",
         price: "690",
-        image: "31.png",
+        image: "1.png",
         sizes: ["XS", "M"],
-        color: "Желтый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "32",
@@ -326,9 +326,9 @@ const rawProducts = [
         description: "Летние шорты из натурального хлопка",
         category: "Детское",
         price: "850",
-        image: "32.png",
+        image: "1.png",
         sizes: ["XS", "S", "M"],
-        color: "Голубой"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "33",
@@ -336,9 +336,9 @@ const rawProducts = [
         description: "Нарядное платье для маленькой принцессы",
         category: "Детское",
         price: "1590",
-        image: "33.png",
+        image: "1.png",
         sizes: ["S", "M", "L"],
-        color: "Розовый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "34",
@@ -346,9 +346,9 @@ const rawProducts = [
         description: "Тёплый комбинезон для прогулок зимой",
         category: "Детское",
         price: "3400",
-        image: "34.png",
+        image: "1.png",
         sizes: ["XS", "M", "XL"],
-        color: "Синий"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "35",
@@ -356,9 +356,9 @@ const rawProducts = [
         description: "Вязаная шапка с помпоном",
         category: "Детское",
         price: "590",
-        image: "35.png",
+        image: "1.png",
         sizes: ["S", "L"],
-        color: "Красный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "36",
@@ -366,9 +366,9 @@ const rawProducts = [
         description: "Удобные кроссовки на липучках",
         category: "Детское",
         price: "2200",
-        image: "36.png",
+        image: "1.png",
         sizes: ["XS", "S", "M", "L"],
-        color: "Белый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "37",
@@ -376,9 +376,9 @@ const rawProducts = [
         description: "Тёплый свитшот с капюшоном",
         category: "Детское",
         price: "1350",
-        image: "37.png",
+        image: "1.png",
         sizes: ["S", "L"],
-        color: "Серый"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "38",
@@ -386,9 +386,9 @@ const rawProducts = [
         description: "Джинсы с регулируемым поясом",
         category: "Детское",
         price: "1290",
-        image: "38.png",
+        image: "1.png",
         sizes: ["XS", "S", "M", "L", "XL"],
-        color: "Синий"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "39",
@@ -396,9 +396,9 @@ const rawProducts = [
         description: "Лёгкая демисезонная куртка",
         category: "Детское",
         price: "2800",
-        image: "39.png",
+        image: "1.png",
         sizes: ["M", "L", "XL"],
-        color: "Зелёный"
+        colors: ["black", "white", "green", "blue", "milk"]
     },
     {
         id: "40",
@@ -406,9 +406,9 @@ const rawProducts = [
         description: "Уютная пижама с весёлым рисунком",
         category: "Детское",
         price: "990",
-        image: "40.png",
+        image: "1.png",
         sizes: ["XS", "M", "L"],
-        color: "Голубой"
+        colors: ["black", "white", "green", "blue", "milk"]
     }
 ];
 
