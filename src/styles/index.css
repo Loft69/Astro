@@ -362,7 +362,7 @@ img {
     border-color: var(--black)
 }
 
-/* Хлебные крошки */
+
 .breadcrumbs {
     display: flex;
     align-items: center;
@@ -1194,7 +1194,7 @@ img {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Изображение и бейджи */
+
 .product-card__image-wrapper {
     position: relative;
     width: 100%;
@@ -1244,7 +1244,7 @@ img {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Контент */
+
 .product-card__content {
     display: flex;
     flex-direction: column;
@@ -1277,7 +1277,7 @@ img {
     overflow: hidden;
 }
 
-/* Выбор цвета */
+
 .product-card__colors {
     display: flex;
     align-items: center;
@@ -1314,7 +1314,7 @@ img {
     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0f172a;
 }
 
-/* Выбор размера */
+
 .product-card__sizes {
     display: flex;
     align-items: center;
@@ -1354,7 +1354,7 @@ img {
     color: #ffffff;
 }
 
-/* Нижняя часть и кнопки */
+
 .product-card__bottom {
     display: flex;
     align-items: center;
@@ -1375,7 +1375,7 @@ img {
     position: relative;
 }
 
-/* Кнопка "В корзину" */
+
 .btn-add-to-cart {
     width: 100%;
     height: 100%;
@@ -1398,7 +1398,7 @@ img {
     transform: scale(0.97);
 }
 
-/* Счетчик количества */
+
 .quantity-controls {
     display: flex;
     align-items: center;
@@ -1436,7 +1436,7 @@ img {
     transform: scale(0.92);
 }
 
-/* Серый и неактивный минус, когда 1 предмет */
+
 .btn-quantity:disabled {
     background: #f1f5f9;
     border-color: #e2e8f0;
@@ -1452,7 +1452,7 @@ img {
     padding: 0 4px;
 }
 
-/* Анимации появления */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -1496,7 +1496,7 @@ img {
     background-color: var(--beige) !important;
 }
 
-/* Фильтры и селекты */
+
 .filters select,
 .auth-form input,
 .auth-form select,
@@ -1507,12 +1507,12 @@ img {
     border-color: var(--border-color) !important;
 }
 
-/* Кружки цвета (обводка активного цвета адаптируется под тему) */
+
 .color-swatch.active {
     box-shadow: 0 0 0 2px var(--card-bg), 0 0 0 4px var(--text-primary) !important;
 }
 
-/* Чипы размеров */
+
 .size-chip {
     background: var(--background) !important;
     color: var(--text-primary) !important;
@@ -1524,7 +1524,7 @@ img {
     color: #ffffff !important;
 }
 
-/* Кнопки количество +/- */
+
 .quantity-controls {
     background-color: var(--beige) !important;
 }
@@ -1544,7 +1544,7 @@ img {
     color: var(--text-primary) !important;
 }
 
-/* Категории и плашки */
+
 .category-card, .profile-card, .cart__summary, .auth-form, .about-values > div {
     background: var(--card-bg) !important;
     color: var(--text-primary) !important;
@@ -1561,7 +1561,7 @@ img {
     border: 1px solid var(--border-color) !important;
 }
 
-/* 1. Настройка футера для адаптации под темы */
+
 .footer {
     background: var(--card-bg) !important;
     color: var(--text-primary) !important;
@@ -1601,7 +1601,7 @@ img {
     font-size: 11px;
 }
 
-/* 2. Настройка темных кнопок (.button--dark) */
+
 .button--dark {
     background: var(--text-primary) !important;
     color: var(--background) !important;
@@ -1723,7 +1723,7 @@ img {
     color: var(--danger);
 }
 
-/* Переопределяем существующий .quantity внутри cart-item */
+
 .cart-item .quantity {
     display: inline-flex;
     align-items: center;
@@ -1780,7 +1780,7 @@ img {
     color: var(--danger);
 }
 
-/* Сводка */
+
 .cart__summary {
     align-self: start;
     position: sticky;
@@ -1840,7 +1840,7 @@ img {
     line-height: 1.5;
 }
 
-/* Экран успеха */
+
 .order-success {
     min-height: 500px;
     display: flex;
@@ -2023,7 +2023,7 @@ img {
     background: var(--text-primary);
 }
 
-/* Внутри модалки auth-form теряет свои внешние отступы и фон */
+
 .modal .auth-form {
     padding: 0;
     background: transparent;
@@ -2107,7 +2107,7 @@ img {
     opacity: .85;
 }
 
-/* Навигация — подчёркивание при наведении и у активного пункта */
+
 .nav a {
     position: relative;
     padding: 6px 0;
@@ -2128,7 +2128,7 @@ img {
     width: 100%;
 }
 
-/* Кнопка темы — лёгкое вращение */
+
 .theme-toggle {
     transition: transform .4s cubic-bezier(.2, .8, .2, 1),
     background .2s ease,
@@ -2138,7 +2138,7 @@ img {
     transform: rotate(-15deg) scale(1.08);
 }
 
-/* Ссылка «Войти» — подчёркивание */
+
 .header__login {
     position: relative;
     padding: 4px 0;
@@ -2158,7 +2158,6 @@ img {
     width: 100%;
 }
 
-/* Блок пользователя */
 .header__user a {
     transition: color .2s ease;
 }
@@ -2189,7 +2188,6 @@ img {
     line-height: 1;
 }
 
-/* 2. Сама кнопка */
 .cart-button {
     display: inline-flex;
     align-items: center;
@@ -2206,7 +2204,7 @@ img {
     transition: color .2s ease;
 }
 
-/* 3. Бейдж с числом — аккуратная скруглённая пилюля */
+
 .cart-button__badge {
     min-width: 22px;
     height: 22px;
@@ -2229,7 +2227,7 @@ img {
     box-shadow: 0 4px 10px rgba(200, 162, 122, .5);
 }
 
-/* Плавное появление, когда число впервые появляется */
+
 @keyframes badgePop {
     0%   { transform: scale(0); }
     60%  { transform: scale(1.15); }
@@ -2239,14 +2237,10 @@ img {
     animation: badgePop .35s cubic-bezier(.2, .8, .2, 1.3);
 }
 
-/* Старое правило с абсолютным кружком больше не используется */
+
 .cart-button > span:not(.cart-button__label):not(.cart-button__count) {
     display: none;
 }
-
-/* ============================================================
-   FOOTER — мягкие анимации
-   ============================================================ */
 
 .footer__logo {
     transition: letter-spacing .35s cubic-bezier(.2, .8, .2, 1);
@@ -2263,7 +2257,7 @@ img {
     transform: translateX(4px);
 }
 
-/* Адаптив: на мобилке пилюля чуть компактнее */
+
 @media (max-width: 600px) {
     .cart-button__count {
         padding: 2px 7px;
@@ -2273,3 +2267,42 @@ img {
         gap: 6px;
     }
 }
+
+
+:root { --accent: #6c5ce7; }
+
+.logo, .footer__logo {
+    background: linear-gradient(120deg, #111 30%, var(--accent) 70%, #e056fd);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    letter-spacing: .12em;
+}
+.dark-theme .logo, .dark-theme .footer__logo {
+    background: linear-gradient(120deg, #fff 30%, #a29bfe 70%, #e056fd);
+    -webkit-background-clip: text; background-clip: text;
+}
+
+.header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); }
+
+.button { transition: transform .15s ease, box-shadow .15s ease, opacity .15s; }
+.button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(108, 92, 231, .25); }
+.button:disabled { opacity: .6; cursor: not-allowed; }
+
+.product-card { transition: transform .2s ease, box-shadow .2s ease; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(0, 0, 0, .12); }
+
+.nav a, .header__actions a { position: relative; transition: color .15s; }
+.nav a::after {
+    content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
+    background: var(--accent); transition: width .2s ease;
+}
+.nav a:hover::after, .nav a.active::after { width: 100%; }
+
+input:focus, select:focus, textarea:focus {
+    outline: none; border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, .15);
+}
+
+.loading { padding: 60px 0; text-align: center; opacity: .7; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.page > .container { animation: fadeUp .35s ease both; }

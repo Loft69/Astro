@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {useCart} from "../../context/CartContext";
 import {useAuth} from "../../context/AuthContext";
 import AuthModal from "../../components/AuthModal/AuthModal";
+import * as api from "../../services/api.js";
 
 export default function Cart() {
     const {cart, totalPrice, changeQuantity, removeFromCart, clearCart} = useCart();
@@ -10,6 +11,7 @@ export default function Cart() {
     const [authOpen, setAuthOpen] = useState(false);
     const [orderDone, setOrderDone] = useState(false);
     const [confirmClear, setConfirmClear] = useState(false);
+    const [, setOrdering] = useState(false);
 
     const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
 
@@ -43,10 +45,18 @@ export default function Cart() {
         );
     }
 
-    function checkout() {
+    async function checkout() {
         if (!user) return setAuthOpen(true);
-        clearCart();
-        setOrderDone(true);
+        setOrdering(true);
+        try {
+            await api.createOrder(cart);
+            clearCart();
+            setOrderDone(true);
+        } catch (e) {
+            alert(e.message);
+        } finally {
+            setOrdering(false);
+        }
     }
 
     function completeAfterAuth() {

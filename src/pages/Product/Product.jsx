@@ -1,21 +1,18 @@
-import React, { useMemo, useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { initialProducts } from "../../mock/products";
 import { resolveColor, colorLabel } from "../../utils/colors";
 import {useTheme} from "../../context/ThemeContext.jsx";
+import { getProduct, normalizeProduct } from "../../services/api";
 
 export default function Product() {
     const { id } = useParams();
     const { cart, addToCart, changeQuantity, removeFromCart } = useCart();
     const { theme } = useTheme();
 
-    // Товар теперь берём из локального products.js вместо MockAPI —
-    // там нет нужных полей (sizes/colors), а сравнение id ведём как со строками
-    const product = useMemo(
-        () => initialProducts.find((p) => String(p.id) === String(id)),
-        [id]
-    );
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const [selectedSize, setSelectedSize] = useState(
         product?.sizes?.length > 0 ? product.sizes[0] : "M"
@@ -26,6 +23,24 @@ export default function Product() {
         const white = product.colors.find((c) => c.toLowerCase() === "white");
         return white || product.colors[0];
     });
+
+    useEffect(() => {
+        let alive = true;
+        getProduct(id)
+            .then(p => alive && setProduct(normalizeProduct(p)))
+            .catch(() => alive && setProduct(initialProducts.find(p => String(p.id) === String(id)) || null))
+            .finally(() => alive && setLoading(false));
+        return () => { alive = false; };
+    }, [id]);
+
+    useEffect(() => {
+        if (!product) return;
+        setSelectedSize(product.sizes?.length ? product.sizes[0] : "M");
+        const white = product.colors?.find(c => c.toLowerCase() === "white");
+        setSelectedColor(product.colors?.length ? (white || product.colors[0]) : null);
+    }, [product]);
+
+    if (loading) return <div className="page"><div className="container loading">Загрузка товара…</div></div>;
 
     if (!product) {
         return (
@@ -79,7 +94,7 @@ export default function Product() {
                 <div className="product-page">
                     <div className="product-page__image">
                         <span className="product-page__badge">{product.category}</span>
-                        <img src={"../../../public/assets/" + product.image} alt={product.name} />
+                        <img src={product.image?.startsWith("http") ? product.image : `/assets/${product.image}`} alt={product.name} />
                     </div>
 
                     <div className="product-page__info">

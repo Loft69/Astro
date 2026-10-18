@@ -31,15 +31,16 @@ export default function AuthModal({open, onClose, onSuccess, message}) {
 
     const change = e => setForm({...form, [e.target.name]: e.target.value});
 
-    function submit(e) {
+    async function submit(e) {
         e.preventDefault();
         setError("");
-        if (tab === "login") {
-            if (!login(form.email, form.password)) return setError("Неверный email или пароль");
-        } else {
-            if (!register(form)) return setError("Пользователь с таким email уже существует.");
+        try {
+            if (tab === "login") await login(form.email, form.password);
+            else await register(form);
+            onSuccess?.();
+        } catch (err) {
+            setError(err.message);
         }
-        onSuccess?.();
     }
 
     return (

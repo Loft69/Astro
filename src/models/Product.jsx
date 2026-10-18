@@ -7,11 +7,9 @@ export class Product {
         this.price = Number(price);
         this.image = "" + image;
         this.sizes = sizes;
-        // Поддержка старого формата (одиночное поле "color"), но основной источник — массив "colors"
         this.colors = colors && colors.length > 0 ? colors : (color ? [color] : []);
     }
 
-    // проверка фильтров
     hasSize(size) {
         if (!size || size === 'all') return true;
         return this.sizes.includes(size);

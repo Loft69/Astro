@@ -3,22 +3,35 @@ import { useSearchParams } from "react-router-dom";
 import ProductGrid from "../../components/ProductGrid/ProductGrid";
 import { initialProducts } from '../../mock/products';
 import { Product } from '../../models/Product';
+import { getProducts, normalizeProduct } from "../../services/api";
 
 export default function Catalog() {
-    const [products, setProducts] = useState(initialProducts);
-    const [loading, setLoading] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const [params, setParams] = useSearchParams();
     const category = params.get("category") || "all";
     const [size, setSize] = useState("all");
     const [color, setColor] = useState("all");
 
-    // 1. Извлекаем уникальные фильтры из текущего списка продуктов
     const availableCategories = useMemo(() => Product.getUniqueCategories(products), [products]);
     const availableSizes = useMemo(() => Product.getUniqueSizes(products), [products]);
     const availableColors = useMemo(() => Product.getUniqueColors(products), [products]);
 
-    // 2. Защитная проверка: если выбран фильтр, которого больше нет в базе, сбрасываем его в "all"
+    useEffect(() => {
+        let alive = true;
+        getProducts()
+            .then(list => {
+                const normalized = list.map(normalizeProduct);
+                // Создаём экземпляры класса Product из нормализованных данных
+                const productInstances = normalized.map(data => new Product(data));
+                alive && setProducts(productInstances);
+            })
+            .catch(() => alive && setProducts(initialProducts)) // офлайн-фолбэк
+            .finally(() => alive && setLoading(false));
+        return () => { alive = false; };
+    }, []);
+
     useEffect(() => {
         if (size !== "all" && !availableSizes.includes(size)) {
             setSize("all");
@@ -32,7 +45,6 @@ export default function Catalog() {
         }
     }, [products, availableCategories, availableSizes, availableColors, size, color, category, params, setParams]);
 
-    // 3. Изменение категории с обновлением URL
     const handleCategoryChange = (e) => {
         const newCat = e.target.value;
         if (newCat === "all") {
@@ -43,7 +55,6 @@ export default function Catalog() {
         setParams(params);
     };
 
-    // 4. Отфильтрованный массив товаров
     const filteredProducts = useMemo(() => {
         return products.filter(product => product.matches({ category, size, color }));
     }, [products, category, size, color]);
@@ -58,8 +69,6 @@ export default function Catalog() {
                 <div className="catalog">
                     <div className="filters">
                         <h3>Фильтры</h3>
-
-                        {/* Динамические категории */}
                         <label>
                             Категория
                             <select value={category} onChange={handleCategoryChange}>
@@ -72,7 +81,6 @@ export default function Catalog() {
                             </select>
                         </label>
 
-                        {/* Динамические размеры */}
                         <label>
                             Размер
                             <select value={size} onChange={e => setSize(e.target.value)}>
@@ -84,8 +92,6 @@ export default function Catalog() {
                                 ))}
                             </select>
                         </label>
-
-                        {/* Динамические цвета */}
                         <label>
                             Цвет
                             <select value={color} onChange={e => setColor(e.target.value)}>

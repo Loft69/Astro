@@ -20,10 +20,20 @@ export default function Register() {
         setForm({...form, [e.target.name]: e.target.value});
     }
 
-    function submit(e) {
+    const [loading, setLoading] = useState(false);
+
+    async function submit(e) {
         e.preventDefault();
-        if (!register(form)) return setError("Пользователь с таким email уже существует.");
-        navigate("/profile");
+        setError("");
+        setLoading(true);
+        try {
+            await register(form);
+            navigate("/profile");
+        } catch (err) {
+            setError(err.message || "Ошибка регистрации");
+        } finally {
+            setLoading(false);
+        }
     }
 
     return <div className="auth-page">
@@ -35,8 +45,7 @@ export default function Register() {
                 <label>Фамилия<input name="lastName" value={form.lastName} onChange={change} required/></label>
             </div>
             <label>Email<input type="email" name="email" value={form.email} onChange={change} required/></label>
-            <label>Пароль<input type="password" name="password" value={form.password} onChange={change}
-                                required/></label>
+            <label>Пароль<input type="password" name="password" value={form.password} onChange={change} required/></label>
             <label>Дата рождения<input type="date" name="birthday" value={form.birthday} onChange={change}/></label>
             <label>Предпочтения в одежде<select name="preferences" value={form.preferences} onChange={change}>
                 <option value="">Выберите стиль</option>
@@ -45,7 +54,9 @@ export default function Register() {
                 <option value="street">Streetwear</option>
                 <option value="classic">Классика</option>
             </select></label>
-            <button className="button button--dark button--full" type="submit">Зарегистрироваться</button>
+            <button className="button button--dark button--full" type="submit" disabled={loading}>
+                {loading ? "Создаём аккаунт…" : "Зарегистрироваться"}
+            </button>
             <div className="auth-link">Уже есть аккаунт? <Link to="/login">Войти</Link></div>
         </form>
     </div>;

@@ -10,10 +10,20 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    function submit(e) {
+    const [loading, setLoading] = useState(false);
+
+    async function submit(e) {
         e.preventDefault();
-        if (!login(email, password)) return setError("Неверный email или пароль");
-        navigate("/profile");
+        setError("");
+        setLoading(true);
+        try {
+            await login(email, password);
+            navigate("/profile");
+        } catch (err) {
+            setError(err.message || "Неверный email или пароль");
+        } finally {
+            setLoading(false);
+        }
     }
 
     return <div className="auth-page">
@@ -22,7 +32,9 @@ export default function Login() {
             {error && <div className="form-error">{error}</div>}
             <label>Email<input type="email" value={email} onChange={e => setEmail(e.target.value)} required/></label>
             <label>Пароль<input type="password" value={password} onChange={e => setPassword(e.target.value)} required/></label>
-            <button className="button button--dark button--full" type="submit">Войти</button>
+            <button className="button button--dark button--full" type="submit" disabled={loading}>
+                {loading ? "Входим…" : "Войти"}
+            </button>
             <button type="button" className="forgot-password"
                     onClick={() => alert("Ссылка для восстановления пароля отправлена на email.")}>Забыли пароль?
             </button>

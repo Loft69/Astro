@@ -16,15 +16,12 @@ export const COLOR_MAP = {
     pink: "#e6a3b5",
 };
 
-// Возвращает CSS-цвет по названию из JSON; если названия нет в карте — пробуем использовать его как есть
-// (например "purple" — валидное CSS-имя цвета само по себе)
 export function resolveColor(name) {
     if (!name) return "#cccccc";
     const key = name.toLowerCase();
     return COLOR_MAP[key] || key;
 }
 
-// Человекочитаемые названия цветов на русском — для подписи рядом со свотчами
 const COLOR_NAMES_RU = {
     black: "Чёрный",
     white: "Белый",

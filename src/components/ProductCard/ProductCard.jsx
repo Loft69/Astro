@@ -8,19 +8,16 @@ export default function ProductCard({ product }) {
     const { cart, addToCart, changeQuantity, removeFromCart } = useCart();
     const { theme } = useTheme();
 
-    // Если у продукта есть размеры, берем первый по умолчанию, иначе "M"
     const [selectedSize, setSelectedSize] = useState(
         product.sizes && product.sizes.length > 0 ? product.sizes[0] : "M"
     );
 
-    // Цвет по умолчанию — белый, если он есть среди цветов товара, иначе первый доступный
     const [selectedColor, setSelectedColor] = useState(() => {
         if (!product.colors || product.colors.length === 0) return null;
         const white = product.colors.find((c) => c.toLowerCase() === "white");
         return white || product.colors[0];
     });
 
-    // Находим этот конкретный товар с выбранным размером в корзине
     const cartItem = cart.find(
         (item) => item.id === product.id && item.size === selectedSize
     );
@@ -42,14 +39,12 @@ export default function ProductCard({ product }) {
         }
     };
 
-    // Форматированная цена из метода класса Product или fallback
     const priceText = typeof product.getFormattedPrice === "function"
         ? product.getFormattedPrice()
         : `${Number(product.price).toLocaleString("ru-RU")} ₽`;
 
     return (
         <article className="product-card">
-            {/* Картинка и бейджи */}
             <div className="product-card__image-wrapper">
                 <Link to={`/product/${product.id}`}>
                     <img className="product-card__image" src={"../../../public/assets/" + product.image} alt={product.name} />
@@ -59,7 +54,6 @@ export default function ProductCard({ product }) {
                 </div>
             </div>
 
-            {/* Контент карточки */}
             <div className="product-card__content">
                 <div className="product-card__header">
                     <Link to={`/product/${product.id}`} className="product-card__title-link">
@@ -70,7 +64,6 @@ export default function ProductCard({ product }) {
                     )}
                 </div>
 
-                {/* Выбор цвета */}
                 {product.colors && product.colors.length > 0 && (
                     <div className="product-card__colors">
                         <span className="colors-label">{colorLabel(selectedColor)}</span>
@@ -90,7 +83,6 @@ export default function ProductCard({ product }) {
                     </div>
                 )}
 
-                {/* Выбор размера */}
                 {product.sizes && product.sizes.length > 0 && (
                     <div className="product-card__sizes">
                         <span className="sizes-label">Размер:</span>
@@ -109,7 +101,6 @@ export default function ProductCard({ product }) {
                     </div>
                 )}
 
-                {/* Нижняя часть: цена и анимация кнопки */}
                 <div className="product-card__bottom">
                     <div className="product-card__price">{priceText}</div>
 
